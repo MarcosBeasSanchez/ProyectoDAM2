@@ -1,0 +1,74 @@
+
+npm i (node,express,mongoose,morgan,bcryptjs) : importa extensiones 
+npm init -y : Inicializa un proyecto Node.js creando un archivo package.json
+
+checkear : https://tailwindcss.com/docs/guides/vite para installar tailwindcss   
+/////////////////////////////////////////////
+
+
+import userModel from "../models/user.model.js";
+import bcrypt from "bcryptjs";
+
+export const register  = (req, res)=> {
+     const {username,email,password}= req.body
+     const passwordHash = bcrypt.hash(password,10)
+     console.log((passwordHash).toString())
+ 
+ try{
+     const newUser = new User ({
+         username,
+         email,
+         password:passwordHash
+     })
+ 
+ const UserSchema = newUser.save()
+     res.json(UsernameSalvado)
+ 
+ }catch(error){
+     console.log(error)
+ }
+ }
+ 
+/////////////////////
+
+//login
+
+export const login = async(req,res)=>{
+    const{username,password} = req.body
+    try{
+        const u = await User.firstOne({username.username})
+        if(u != null){
+            if(await bcrypt.compare(password,u.password)){
+                res.send("Contraseñas iguales")
+            }else{
+                res.send("Login ERROR")
+            }
+        }
+    }
+}
+
+/////////////////////////////////////
+
+//Actualizar
+
+export const update = async (req,res)=> {
+    
+    const{username,email,password} = req.body
+    try{
+        const checkUser = await = User.findOne({username, u.username})
+        if(checkUser = null){
+            res.send("usuario no encontrado")
+        } else {
+            if(await bcrypt.compare(oldPassword,checkUser.password)){
+                const encrypted = await bcrypt.hash(newPassword,10)
+                checkUser.password=encrypted
+                await checkUser.save()
+            }
+        }
+    }
+}
+
+/////////////////////////
+
+//
+
