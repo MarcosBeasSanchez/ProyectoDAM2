@@ -1,6 +1,12 @@
 
 npm i (node,express,mongoose,morgan,bcryptjs) : importa extensiones 
 npm init -y : Inicializa un proyecto Node.js creando un archivo package.json
+docker-compose up -d : inicializa el archivo compose , tambien se puede correr desde la extension docker de vscode
+docker ps -a :visualizar los diferentes contenedores disponibles en el pc
+docker images -a:visualizar las imágenes disponibles en el pc
+docker container rm container_id :Eliminar un contenedor:
+docker rmi nombre_Imagen_1 nombre_imagen_2 :Eliminar imágenes de Docker(Tener en cuenta que la imagen que queréis borrar no puede estar asociada a ningún contenedor activo)
+
 
 checkear : https://tailwindcss.com/docs/guides/vite para installar tailwindcss   
 /////////////////////////////////////////////
