@@ -1,0 +1,21 @@
+{
+  "name": "proyectodam2",
+  "version": "1.0.0",
+  "description": "En este proyecto porbaremos herramientas de conexion con una base de datos utilizando Node.js, nodemon, mongo, mongo-express, mongoose, react, bcrypt, ETC",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node ./src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.1",
+    "mongoose": "^8.7.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.7"
+  }
+}
