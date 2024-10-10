@@ -7,8 +7,10 @@ docker images -a:visualizar las imágenes disponibles en el pc
 docker container rm container_id :Eliminar un contenedor:
 docker rmi nombre_Imagen_1 nombre_imagen_2 :Eliminar imágenes de Docker(Tener en cuenta que la imagen que queréis borrar no puede estar asociada a ningún contenedor activo)
 
-
-checkear : https://tailwindcss.com/docs/guides/vite para installar tailwindcss   
+//////////////////////////
+https://tailwindcss.com/docs/guides/vite para installar tailwindcss
+https://hub.docker.com/ para docker-compose (mongo y mongo express)
+https://expressjs.com/en/4x/api.html#app documentacion de express (res,req etc)
 /////////////////////////////////////////////
 
 
