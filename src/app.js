@@ -4,7 +4,7 @@ import routes from './routes/Auth.routes.js'
 
 
 const app = express() // para que use morgan con el .use
-//app.use(express.json());
+app.use(express.json());
 app.use(morgan('dev'));
 app.use(routes)
 

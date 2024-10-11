@@ -1,13 +1,13 @@
 //Enviamos un res a nuestro front mediante una funcion flecha
 
-//import userModel from "../models/user.model.js";
+import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 
 export const register = async (req, res) => {
 
-    const { username, email, password } = req.body
+    const { username, email, password} = req.body
 
-    //const passwordHash = bcrypt.hash(password, 10)
+   const passwordHash = bcrypt.hash(password, 1)
 
     //console.log((passwordHash).toString())
 
@@ -15,18 +15,14 @@ export const register = async (req, res) => {
         const newUser = new User({
             username,
             email,
-            password: passwordHash
+            password:passwordHash
         })
 
         const userSaved = await newUser.save()
 
         res.json(userSaved)
 
-        /*res.json({
-            _id: userSaved._id,
-            username: userSaved.username,
-            email: userSaved.email
-        })*/
+        console.log("Prueba")
 
     } catch (error) {
         console.log(error)
