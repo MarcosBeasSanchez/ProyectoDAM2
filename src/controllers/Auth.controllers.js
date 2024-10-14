@@ -5,9 +5,9 @@ import bcrypt from "bcryptjs";
 
 export const register = async (req, res) => {
 
-    const { username, email, password} = req.body
-
-   const passwordHash = bcrypt.hash(password, 1)
+    const { username, email, password } = req.body
+    // Hash de la contraseña (esperamos a que la promesa se resuelva)
+    const passwordHash = await bcrypt.hash(password, 10)
 
     //console.log((passwordHash).toString())
 
@@ -15,14 +15,16 @@ export const register = async (req, res) => {
         const newUser = new User({
             username,
             email,
-            password:passwordHash
-        })
+            password: passwordHash // Asignamos el hash de la contraseña, no la promesa
+        });
 
-        const userSaved = await newUser.save()
+        // Guardar el usuario en la base de datos
+        const userSaved = await newUser.save();
 
-        res.json(userSaved)
+        // Responder con el usuario guardado
+        res.status(201).json(userSaved);
 
-        console.log("Prueba")
+        console.log("Usuario registrado correctamente")
 
     } catch (error) {
         console.log(error)
@@ -30,10 +32,22 @@ export const register = async (req, res) => {
 
 }
 
-
-export const login = (req, res) => {
-    res.send("Logeando al usuario") // Login  la respuesta del back
+export const login = async (req, res) => {
+    const { username, password } = req.body
+    try {
+        const u = await User.findOne({ username });
+        if (u != null) {
+            // Esperar a que bcrypt compare la contraseña
+            if (await bcrypt.compare(password, u.password)) {
+                res.send("Contraseña correcta");
+            } else {
+                res.send("Error en el login: Contraseña incorrecta");
+            }
+        } else {
+            res.send("Error en el login: Usuario no encontrado");
+        }
+    } catch (error) {
+        console.error(error);
+        return res.send("Error en el servidor");
+    }
 }
-
-/*const{username, email, password} = req.body
-console.log(username,email,password)*/

@@ -1,4 +1,16 @@
-
+git add . : añade todos los cambios realizados a la cola 
+git commit -m "Guardando mis cambios locales" : mensaje del commit 
+git stash : guarda los cambios temporalmente
+git stash pop: recupera los cambios tempolares con el git stash
+git status : lista los cambios , en rojo no añadidos y en verde añadidos
+git reset --soft <commit> : Mueve el puntero de HEAD al commit especificado, pero mantiene los cambios en el índice (staging area). 
+git reset --hard <commit>: Mueve el puntero de HEAD al commit especificado y borra cualquier cambio en el índice y en el árbol de trabajo.
+git clean se utiliza para eliminar archivos no rastreados en tu directorio de trabajo.
+git clean -n: Muestra qué archivos serían eliminados, pero no los borra realmente. Es útil para hacer una comprobación antes de ejecutar el comando.
+git clean -f: Elimina los archivos no rastreados en tu árbol de trabajo.
+git fetch: se utiliza para obtener los cambios de un repositorio remoto sin aplicar esos cambios a tu rama de trabajo.
+git fetch origin: Descarga todos los cambios del repositorio remoto llamado origin (generalmente el remoto por defecto).
+git merge /git rebase : fusioja los cambios traidos con el git fetch 
 npm i (node,express,mongoose,morgan,bcryptjs) : importa extensiones 
 npm init -y : Inicializa un proyecto Node.js creando un archivo package.json
 docker-compose up -d : inicializa el archivo compose , tambien se puede correr desde la extension docker de vscode
@@ -12,48 +24,6 @@ https://tailwindcss.com/docs/guides/vite para installar tailwindcss
 https://hub.docker.com/ para docker-compose (mongo y mongo express)
 https://expressjs.com/en/4x/api.html#app documentacion de express (res,req etc)
 /////////////////////////////////////////////
-
-
-import userModel from "../models/user.model.js";
-import bcrypt from "bcryptjs";
-
-export const register  = (req, res)=> {
-     const {username,email,password}= req.body
-     const passwordHash = bcrypt.hash(password,10)
-     console.log((passwordHash).toString())
- 
- try{
-     const newUser = new User ({
-         username,
-         email,
-         password:passwordHash
-     })
- 
- const UserSchema = newUser.save()
-     res.json(UsernameSalvado)
- 
- }catch(error){
-     console.log(error)
- }
- }
- 
-/////////////////////
-
-//login
-
-export const login = async(req,res)=>{
-    const{username,password} = req.body
-    try{
-        const u = await User.firstOne({username.username})
-        if(u != null){
-            if(await bcrypt.compare(password,u.password)){
-                res.send("Contraseñas iguales")
-            }else{
-                res.send("Login ERROR")
-            }
-        }
-    }
-}
 
 /////////////////////////////////////
 
@@ -77,6 +47,4 @@ export const update = async (req,res)=> {
 }
 
 /////////////////////////
-
-//
 
