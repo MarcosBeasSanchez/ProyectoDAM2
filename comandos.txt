@@ -11,7 +11,7 @@ git clean -f: Elimina los archivos no rastreados en tu árbol de trabajo.
 git fetch: se utiliza para obtener los cambios de un repositorio remoto sin aplicar esos cambios a tu rama de trabajo.
 git fetch origin: Descarga todos los cambios del repositorio remoto llamado origin (generalmente el remoto por defecto).
 git merge /git rebase : fusioja los cambios traidos con el git fetch 
-npm i (node,express,mongoose,morgan,bcryptjs) : importa extensiones 
+npm i (node,express,mongoose,morgan,bcryptjs,vite) : importa extensiones 
 npm init -y : Inicializa un proyecto Node.js creando un archivo package.json
 docker-compose up -d : inicializa el archivo compose , tambien se puede correr desde la extension docker de vscode
 docker ps -a :visualizar los diferentes contenedores disponibles en el pc
