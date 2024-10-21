@@ -13,18 +13,23 @@ git fetch origin: Descarga todos los cambios del repositorio remoto llamado orig
 git merge /git rebase : fusioja los cambios traidos con el git fetch 
 npm i (node,express,mongoose,morgan,bcryptjs,vite) : importa extensiones 
 npm init -y : Inicializa un proyecto Node.js creando un archivo package.json
-docker-compose up -d : inicializa el archivo compose , tambien se puede correr desde la extension docker de vscode
+docker-compose up -d : inicializsa el archivo compose , tambien se puede correr desde la extension docker de vscode
 docker ps -a :visualizar los diferentes contenedores disponibles en el pc
 docker images -a:visualizar las imágenes disponibles en el pc
 docker container rm container_id :Eliminar un contenedor:
 docker rmi nombre_Imagen_1 nombre_imagen_2 :Eliminar imágenes de Docker(Tener en cuenta que la imagen que queréis borrar no puede estar asociada a ningún contenedor activo)
+//Para reinstalar node_modules
+rm -rf node_modules
+rm package-lock.json
+npm install
 
 //////////////////////////
 https://tailwindcss.com/docs/guides/vite para installar tailwindcss
 https://hub.docker.com/ para docker-compose (mongo y mongo express)
 https://expressjs.com/en/4x/api.html#app documentacion de express (res,req etc)
 /////////////////////////////////////////////
-
+Para levantar el backend y hacer un POST con mongo, necesitamos levantar el docker-compose y la bbdd y despues podremos hacer el POST de nuestro JSON desde
+thunder client.
 /////////////////////////////////////
 
 //Actualizar

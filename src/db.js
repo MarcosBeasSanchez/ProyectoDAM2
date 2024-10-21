@@ -7,6 +7,6 @@ export const connectDB = async() => {
         await mongoose.connect("mongodb://localhost/dam2db");
         console.log("BBDD ok")
     }catch(error){
-        console.log(error);
+        console.error("Error de conexión a la base de datos:", error.message);
     }
 }

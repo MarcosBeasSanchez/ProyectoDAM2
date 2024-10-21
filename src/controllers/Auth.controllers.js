@@ -9,7 +9,7 @@ export const register = async (req, res) => {
     // Hash de la contraseña (esperamos a que la promesa se resuelva)
     const passwordHash = await bcrypt.hash(password, 10)
 
-    //console.log((passwordHash).toString())
+    console.log((passwordHash).toString())
 
     try {
         const newUser = new User({
