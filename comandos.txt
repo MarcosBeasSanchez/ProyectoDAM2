@@ -1,28 +1,71 @@
-//Comandos para montar BACKEND (hasta implementar Vite)
+//COMANDOS PARA BACKEND (hasta implementar Vite)
 -------------------------------------------------------
-    
+    COMANDOS
     -npm i (node,express,mongoose,morgan,bcryptjs) : importa extensiones 
     -npm init -y : Inicializa un proyecto Node.js creando un archivo package.json
-    -docker-compose up -d : inicializsa el archivo compose , tambien se puede correr desde la extension docker de vscode
-    -docker ps -a :visualizar los diferentes contenedores disponibles en el pc
-    -docker images -a:visualizar las imágenes disponibles en el pc
-    -docker container rm container_id :Eliminar un contenedor:
-    -docker rmi nombre_Imagen_1 nombre_imagen_2 :Eliminar imágenes de Docker(Tener en cuenta que la imagen que queréis borrar no puede estar asociada a ningún contenedor activo)
+    -npm run dev : Comando para correr el BACKEND
 
-    https://hub.docker.com/ para docker-compose (mongo y mongo express)
-    https://expressjs.com/en/4x/api.html#app documentacion de express (res,req etc)
-
-//Comandos para montar FRONT
+//COMANDOS PARA FRONT
 ----------------------------
-
-    -npm i (vite, react-router-dom ,react-hook-form, cors, axios) : importa extensiones 
+    COMANDOS
+    -npm i (vite, react-router-dom ,react-hook-form, cors, axios,npm i tailwindcss-animated) : importa extensiones 
+    -npm run dev : comando para correr el FRONT 
 
     https://tailwindcss.com/docs/guides/vite para installar tailwindcss
     https://www.tailwindcss-animated.com/ documentacion tecnica de css animacinones
+    https://www.w3schools.com/react/react_router.asp documentacion tecinca react-router-dom
+    https://react-hook-form.com/ documentacion tecinca react-hook-form
+
+
+//PUERTOS
+----------
+    -localhost:8081 : mongo-express
+    -localhost:27017 : mongo
+    -localhost:Ejemplo (localhost:5000): puerto donde se haya levantantado el puerto
+    -localhost:Ejemlo/funcion (localhost:5000/register): puerto para BACK (thunderClient)
+    -localhost:5173 : puerto de vite
+    -localhost:5173/funcion (localhost:5173/register) : puerto para FRONT 
+
+//EXTENSIONES PARA VSCODE
+--------------------------
+    -Thunder client
+    -Docker
+    -Icons
+    -MongoDB for VScode
+    -Tailwind CSS intelliSense
+    -WSL
+    -ES7 React/Redux/GraphQL/React-Native snippets
+
+//COMANDOS DOCKER
+------------------
+    LINKS
+    https://hub.docker.com/ para docker-compose (mongo y mongo express)
+    https://expressjs.com/en/4x/api.html#app documentacion de express (res,req etc)
+
+    COMANDOS GENERALES(MUY UTILES)
+    -docker-compose up -d : inicializsa el archivo compose , tambien se puede correr desde la extension docker de vscode
+    -docker system prune : eliminando contenedores detenidos, redes no utilizadas, imágenes no utilizadas y volúmenes no utilizados.
+
+    VOLUMENES
+    -docker volume ls : lista los volumenes activos
+    -docker volume rm VOLUME_NAME : elimina un volumen especifico
+    -docker volume prune : elimina los volumenes no utilizados
+    
+    CONTENEDORES(contienen las imagnes)
+    -docker ps : muestra los containers en ejecucion
+    -docker ps -a: muestra todos incluidos los que no estan en ejecucion
+    -docker stop CONTAINER_ID : detiene el container pero el volumen sige existiendo
+    -docker start CONTAINER_ID : ejecuta el contenedor
+    -docker rm CONTAINER_ID : elimina contenedor
+
+    IMAGENES(imagenes que utilizamos)
+    -docker images : muestra todas las imagenes 
+    -docker rmi IMAGE_ID/NAME : elimina una imagen por ID o Nombre 
+    -docker image prune : elimina todas las imagenes no utilizadas
  
 //Comandos GitHub
--------------------
-
+------------------
+     COMANDOS
     -git add . : añade todos los cambios realizados a la cola 
     -git commit -m "Guardando mis cambios locales" : mensaje del commit 
     -git stash : guarda los cambios temporalmente
@@ -37,15 +80,14 @@
     -git fetch origin: Descarga todos los cambios del repositorio remoto llamado origin (generalmente el remoto por defecto).
     -git merge /git rebase : fusioja los cambios traidos con el git fetch 
 
-//Para reinstalar node_modules
+//Para reinstalar node_modules(EN CASO DE ERROR)
 ------------------------------
-
+    COMANDOS(introducir en el mismo orden)
     -rm -rf node_modules
     -rm package-lock.json
     -npm install
 
-/////////////////////////////////////////////
+//APUNTES 
+---------
 Para levantar el backend y hacer un POST con mongo, necesitamos levantar el docker-compose y la bbdd y despues podremos hacer el POST de nuestro JSON desde
 thunder client.
-
-

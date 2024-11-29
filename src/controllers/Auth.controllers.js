@@ -2,7 +2,6 @@
 
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
-import axios from "axios";
 
 export const register = async (req, res) => {
 
@@ -126,9 +125,6 @@ export const search = async (req, res) => {
         } else {
             const { username, email, password } = usu.toObject();
 
-            //return res.json(usu)
-            //return res.send("usuario encotrado");
-
             return res.json({ message: "Usuario encontrado", usu  });
         }
     } catch (error) {
@@ -136,3 +132,16 @@ export const search = async (req, res) => {
         console.log(error)
     }
 }
+export const listarUsuarios = async (req, res) => {
+    try {
+        const usuarios = await User.find({}); // Busca todos los usuarios
+        if (usuarios.length === 0) {
+            return res.send("No existe ningún usuario");
+        } else {
+            return res.json({ usuarios });
+        }
+    } catch (error) {
+        console.error("Error al obtener usuarios:", error);
+        return res.status(500).send("Error en el servidor");
+    }
+};

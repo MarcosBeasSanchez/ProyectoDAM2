@@ -6,8 +6,8 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      #- ~/Desktop/PROYECTODAM2/data:/data/db
-      - C:/Users/marco/OneDrive/Escritorio/Almacenamiento/ProyectoDAM2/data:/data/db
+      - ~/Desktop/PROYECTODAM2/data:/data/db
+      #- C:/Users/marco/OneDrive/Escritorio/Almacenamiento/ProyectoDAM2/data:/data/db
 
     networks:
       - mongo-network
